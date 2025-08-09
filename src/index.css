@@ -1,40 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* THE TECH GUY Design System - Modern, Professional, Tech-Forward */
 
 @layer base {
   :root {
+    /* Core Brand Colors */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 222 84% 4.9%;
 
+    /* Tech Blue Primary */
+    --primary: 214 100% 47%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 214 100% 42%;
+
+    /* Innovation Teal */
+    --secondary: 180 100% 35%;
+    --secondary-foreground: 0 0% 100%;
+    --secondary-hover: 180 100% 30%;
+
+    /* Energy Orange for Kids */
+    --accent: 25 100% 55%;
+    --accent-foreground: 0 0% 100%;
+    --accent-hover: 25 100% 50%;
+
+    /* Professional Grays */
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 222 84% 4.9%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    /* Subtle Tech Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(214 100% 47%), hsl(180 100% 35%));
+    --gradient-hero: linear-gradient(135deg, hsl(214 100% 47%) 0%, hsl(180 100% 35%) 50%, hsl(25 100% 55%) 100%);
+    --gradient-subtle: linear-gradient(135deg, hsl(210 40% 98%), hsl(214 32% 96%));
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Interactive Elements */
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 214 100% 47%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Shadows & Effects */
+    --shadow-soft: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    --shadow-elegant: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+    --shadow-tech: 0 25px 50px -12px hsl(214 100% 47% / 0.25);
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
     --radius: 0.5rem;
 
@@ -100,6 +116,60 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-inter;
+  }
+}
+
+@layer components {
+  /* Hero Section Styles */
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+  
+  .tech-gradient {
+    background: var(--gradient-primary);
+  }
+  
+  .subtle-gradient {
+    background: var(--gradient-subtle);
+  }
+
+  /* Animations */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  /* Hover Effects */
+  .hover-lift {
+    transition: var(--transition-smooth);
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-elegant);
+  }
+
+  /* Service Cards */
+  .service-card {
+    transition: var(--transition-smooth);
+    background: var(--gradient-subtle);
+  }
+  
+  .service-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--shadow-tech);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
   }
 }
